@@ -66,8 +66,8 @@ final List<Map<String, Object?>> character_list = [
   {'character': 'て', 'translation': 'te'},
   {'character': 'と', 'translation': 'to'},
   {'character': 'だ', 'translation': 'da'},
-  {'character': 'ぢ', 'translation': 'ji'},
-  {'character': 'づ', 'translation': 'zu'},
+  {'character': 'ぢ', 'translation': 'di'},
+  {'character': 'づ', 'translation': 'du'},
   {'character': 'で', 'translation': 'de'},
   {'character': 'ど', 'translation': 'do'},
   {'character': 'な', 'translation': 'na'},
@@ -105,5 +105,5 @@ final List<Map<String, Object?>> character_list = [
   {'character': 'ろ', 'translation': 'ro'},
   {'character': 'わ', 'translation': 'wa'},
   {'character': 'を', 'translation': 'wo'},
-  {'character': 'ん', 'translation': 'n/m'},
+  {'character': 'ん', 'translation': 'n'},
 ];
