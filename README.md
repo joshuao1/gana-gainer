@@ -6,7 +6,8 @@ A new Flutter project.
 [] Save character sessions to memory
 [] Select character (groups) for training session
 [] Display mistakes on results page
-[] Add audio clips for characters
+[] Add combination hiragana
+[X] Add audio clips for characters
 [] Add descriptions / mnemonics to characters
 [] Track success rate for each character
 [] Spaced repetition training 
