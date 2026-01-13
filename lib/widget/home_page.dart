@@ -10,6 +10,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedGroups = [
+      'za',
+      'ya',
+      'wa',
+      'ta',
+      'sha',
+      'sa',
+      'rya',
+      'ra',
+      'pya',
+      'pa',
+      'nya',
+      'na',
+      'mya',
+      'ma',
+      'kya',
+      'ka',
+      'ja',
+      'hya',
+      'ha',
+      'gya',
+      'ga',
+      'da',
+      'cha',
+      'bya',
+      'ba',
+      'a',
+    ];
     final characterNotifier = context.watch<CharacterNotifier>();
     return Scaffold(
       appBar: AppBar(title: Text("Home")),
@@ -32,7 +60,12 @@ class HomePage extends StatelessWidget {
                   context,
                   CupertinoPageRoute(
                     builder: (context) => CharacterTrainerPage(
-                      characterList: characterNotifier.characters,
+                      characterList: characterNotifier.characters
+                          .where(
+                            (char) =>
+                                selectedGroups.contains(char.characterGroup),
+                          )
+                          .toList(),
                     ),
                   ),
                 ),

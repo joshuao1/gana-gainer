@@ -1,8 +1,10 @@
+import 'package:language_app/model/character_model.dart';
+
 class CharacterSession {
   int? id;
   DateTime date;
   List errors;
-  List content;
+  List<Character> content;
   Duration duration;
 
   CharacterSession({

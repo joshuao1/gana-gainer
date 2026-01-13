@@ -55,7 +55,7 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
         boxColor = Colors.green;
         index += 1;
         answer = '';
-        if (index >= characterList.length) {
+        if (index >= widget.characterList.length) {
           index = 0;
           stopwatch.stop();
           Navigator.push(
@@ -64,7 +64,7 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
               builder: (context) => ResultsPage(
                 sessionData: CharacterSession(
                   date: DateTime.now(),
-                  content: characterList,
+                  content: widget.characterList,
                   duration: stopwatch.elapsed,
                   errors: errors.toList(),
                 ),
