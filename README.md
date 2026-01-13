@@ -2,15 +2,20 @@
 
 A new Flutter project.
 
-## Getting Started
+## TO DO
+[] Save character sessions to memory
+[] Select character (groups) for training session
+[] Display mistakes on results page
+[] Add audio clips for characters
+[] Add descriptions / mnemonics to characters
+[] Track success rate for each character
+[] Spaced repetition training 
 
-This project is a starting point for a Flutter application.
+---
+Vocabulary!
 
-A few resources to get you started if this is your first Flutter project:
+Grammar!!!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Phrases!!!
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Culture!!!

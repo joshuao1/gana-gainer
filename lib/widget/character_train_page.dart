@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/model/character_model.dart';
+import 'package:language_app/model/character_session.dart';
 import 'package:language_app/notifier/character_notifier.dart';
+import 'package:language_app/widget/results_page.dart';
 import 'package:language_app/widget/styled_container.dart';
 import 'package:provider/provider.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class CharacterTrainerPage extends StatefulWidget {
   const CharacterTrainerPage({super.key});
@@ -21,12 +24,17 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   int index = 0;
   Color boxColor = Colors.white;
   String answer = '';
+  Set errors = {};
+  final stopwatch = Stopwatch();
+  final player = AudioPlayer();
 
   late FocusNode inputFocusNode;
 
   @override
   void initState() {
     super.initState();
+    stopwatch.start();
+    print('stopwatch start');
 
     inputFocusNode = FocusNode();
   }
@@ -35,18 +43,34 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   void dispose() {
     _controller.dispose();
     inputFocusNode.dispose();
+    player.dispose();
     super.dispose();
   }
 
-  void checkAnswer() {
+  Future<void> checkAnswer() async {
     print("Expected Answer ${_characterList![index].translation}");
     if (_characterList![index].translation == _controller.value.text) {
+      await player.play(AssetSource(_characterList![index].audio));
       setState(() {
         boxColor = Colors.green;
         index += 1;
         answer = '';
         if (index >= _characterList!.length) {
           index = 0;
+          stopwatch.stop();
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => ResultsPage(
+                sessionData: CharacterSession(
+                  date: DateTime.now(),
+                  content: _characterList!,
+                  duration: stopwatch.elapsed,
+                  errors: errors.toList(),
+                ),
+              ),
+            ),
+          );
         }
       });
       Timer(const Duration(milliseconds: 700), () {
@@ -58,6 +82,9 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
       setState(() {
         boxColor = Colors.red;
         answer = _characterList![index].translation;
+        errors.add(index);
+        print('errors added to set');
+        print(errors);
       });
       Timer(const Duration(milliseconds: 700), () {
         setState(() {

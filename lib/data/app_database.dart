@@ -6,7 +6,8 @@ final characterSchema = '''
 CREATE TABLE characters (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 character TEXT NOT NULL,
-translation TEXT NOT NULL
+translation TEXT NOT NULL,
+audio TEXT NOT NULL
 );''';
 
 final class AppDatabase {
@@ -34,7 +35,7 @@ final class AppDatabase {
 
   Future<void> _onCreate(Database db, int verion) async {
     await db.execute(characterSchema);
-    for (var char in character_list) {
+    for (var char in characterList) {
       await db.insert('characters', char);
     }
   }
