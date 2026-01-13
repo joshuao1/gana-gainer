@@ -2,16 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:language_app/data/character_data.dart';
 import 'package:language_app/model/character_model.dart';
 import 'package:language_app/model/character_session.dart';
-import 'package:language_app/notifier/character_notifier.dart';
 import 'package:language_app/widget/results_page.dart';
 import 'package:language_app/widget/styled_container.dart';
-import 'package:provider/provider.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class CharacterTrainerPage extends StatefulWidget {
-  const CharacterTrainerPage({super.key});
+  final List<Character> characterList;
+  const CharacterTrainerPage({super.key, required this.characterList});
 
   @override
   State<CharacterTrainerPage> createState() => _CharacterTrainerPageState();
@@ -20,7 +20,6 @@ class CharacterTrainerPage extends StatefulWidget {
 class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   // final _formKey = GlobalKey<FormState>();
   final _controller = TextEditingController();
-  List<Character>? _characterList;
   int index = 0;
   Color boxColor = Colors.white;
   String answer = '';
@@ -33,9 +32,9 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   @override
   void initState() {
     super.initState();
+    widget.characterList.shuffle();
     stopwatch.start();
     print('stopwatch start');
-
     inputFocusNode = FocusNode();
   }
 
@@ -48,14 +47,15 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   }
 
   Future<void> checkAnswer() async {
-    print("Expected Answer ${_characterList![index].translation}");
-    if (_characterList![index].translation == _controller.value.text) {
-      await player.play(AssetSource(_characterList![index].audio));
+    Character character = widget.characterList[index];
+    print("Expected Answer ${character.translation}");
+    if (character.translation == _controller.value.text) {
+      await player.play(AssetSource(character.audio));
       setState(() {
         boxColor = Colors.green;
         index += 1;
         answer = '';
-        if (index >= _characterList!.length) {
+        if (index >= characterList.length) {
           index = 0;
           stopwatch.stop();
           Navigator.push(
@@ -64,7 +64,7 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
               builder: (context) => ResultsPage(
                 sessionData: CharacterSession(
                   date: DateTime.now(),
-                  content: _characterList!,
+                  content: characterList,
                   duration: stopwatch.elapsed,
                   errors: errors.toList(),
                 ),
@@ -81,8 +81,8 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
     } else {
       setState(() {
         boxColor = Colors.red;
-        answer = _characterList![index].translation;
-        errors.add(index);
+        answer = character.translation;
+        errors.add(character.id);
         print('errors added to set');
         print(errors);
       });
@@ -98,12 +98,9 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
 
   @override
   Widget build(BuildContext context) {
-    final characterNotifier = context.watch<CharacterNotifier>();
-    _characterList = characterNotifier.characters;
-
-    if (characterNotifier.isLoading) {
-      return Center(child: CircularProgressIndicator());
-    }
+    // if (characterNotifier.isLoading) {
+    //   return Center(child: CircularProgressIndicator());
+    // }
 
     return Scaffold(
       appBar: AppBar(title: Text("Character Trainer")),
@@ -114,7 +111,7 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
             spacing: 20,
             children: [
               Text(
-                _characterList![index].character,
+                widget.characterList[index].character,
                 style: TextStyle(fontSize: 60),
               ),
               CupertinoTextField(
