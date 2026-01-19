@@ -5,8 +5,8 @@ A new Flutter project.
 ## TO DO
 [X] Save character sessions to memory
 [] play sounds on the character list screen
-[] Track success rate for each character - all time
-[] Track success rate for each character - last 5 encounters
+[X] Display success rate for each character - all time
+[] Display success rate for each character - last 5 encounters
 [] Display recent mistakes
 [] Select character (groups) for training session
 [] Make recent mistakes available for training

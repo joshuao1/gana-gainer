@@ -1,11 +1,25 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/styled_container.dart';
 import 'package:provider/provider.dart';
 import 'package:language_app/notifier/character_notifier.dart';
 
-class CharacterListPage extends StatelessWidget {
+class CharacterListPage extends StatefulWidget {
   const CharacterListPage({super.key});
+
+  @override
+  State<CharacterListPage> createState() => _CharacterListPageState();
+}
+
+class _CharacterListPageState extends State<CharacterListPage> {
+  final player = AudioPlayer();
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,30 +45,33 @@ class CharacterListPage extends StatelessWidget {
                 .toList();
             final accuracy =
                 ((encounters.length - errors.length) / encounters.length) * 100;
-            return StyledContainer(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          character.character,
-                          style: TextStyle(fontSize: 24),
-                        ),
-                        Text(character.translation),
-                      ],
+            return GestureDetector(
+              onTap: () => player.play(AssetSource(character.audio)),
+              child: StyledContainer(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            character.character,
+                            style: TextStyle(fontSize: 24),
+                          ),
+                          Text(character.translation),
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text('Accuracy: ${accuracy.toStringAsPrecision(3)}%'),
-                        Text('Encounters: ${encounters.length}'),
-                      ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text('Accuracy: ${accuracy.toStringAsPrecision(3)}%'),
+                          Text('Encounters: ${encounters.length}'),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
