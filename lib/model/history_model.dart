@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class History {
   int? id;
   final int characterFk;
@@ -18,7 +16,7 @@ class History {
       'id': id,
       'character_fk': characterFk,
       'date': date.millisecondsSinceEpoch,
-      'correct': correct,
+      'correct': correct == true ? 1 : 0,
     };
   }
 
@@ -26,7 +24,7 @@ class History {
     return History(
       characterFk: map['character_fk'] as int,
       date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
-      correct: (map['correct'] as int == 1),
+      correct: map['correct'] == 1,
     );
   }
 }
