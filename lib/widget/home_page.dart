@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/widget/character_list_page.dart';
+import 'package:language_app/widget/character_select_page.dart';
 import 'package:language_app/widget/character_train_page.dart';
 import 'package:language_app/notifier/character_notifier.dart';
 import 'package:provider/provider.dart';
@@ -70,6 +71,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 child: Text("Character Trainer"),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => CharacterSelectPage(),
+                  ),
+                ),
+                child: Text("Select Characters"),
               ),
             ],
           ),

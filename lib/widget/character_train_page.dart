@@ -49,12 +49,14 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   }
 
   Future<void> saveHistory() async {
+    // Save results of the session to the database
     for (var item in historyList) {
       historyNotifier!.addHistory(item);
     }
   }
 
   Future<void> checkAnswer() async {
+    // Check if the submitted answer is correct. If correct, play audio, flash green and move to next character. If incorrect, flash red and display answer.
     Character character = widget.characterList[index];
     if (character.translation == _controller.value.text) {
       await player.play(AssetSource(character.audio));
