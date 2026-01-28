@@ -65,10 +65,7 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
         actions: [
           TextButton(
             onPressed: toggleSelectAll,
-            child: Text(
-              allSelected ? 'Clear all' : 'Select all',
-              // style: TextStyle(color: Colors.white),
-            ),
+            child: Text(allSelected ? 'Clear all' : 'Select all'),
           ),
         ],
       ),
@@ -87,29 +84,6 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
             );
           }).toList(),
         ),
-
-        // ListView.builder(
-        //   itemCount: characterGroups.length,
-        //   itemBuilder: (context, index) {
-        //     final entry = characterGroups[index].entries;
-        //     // var selectedChars = characterGroups
-        //     //     .where((group) => group.values.first)
-        //     //     .map((group) => group.keys.first)
-        //     //     .toList();
-        //     // print(selectedChars);
-
-        //     return CheckboxListTile(
-        //       title: Text(entry.first.key),
-        //       activeColor: Colors.blue,
-        //       value: entry.first.value,
-        //       onChanged: (bool? newValue) {
-        //         setState(() {
-        //           characterGroups[index] = {entry.first.key: newValue!};
-        //         });
-        //       },
-        //     );
-        //   },
-        // ),
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
