@@ -37,14 +37,14 @@ class _CharacterListPageState extends State<CharacterListPage> {
           itemCount: characterNotifier.characters.length,
           itemBuilder: (context, index) {
             final character = characterNotifier.characters[index];
-            final encounters = historyNotifier.histories
+            final attempts = historyNotifier.histories
                 .where((hist) => hist.characterFk == character.id!)
                 .toList();
-            final errors = encounters
+            final errors = attempts
                 .where((hist) => hist.correct == false)
                 .toList();
             final accuracy =
-                ((encounters.length - errors.length) / encounters.length) * 100;
+                ((attempts.length - errors.length) / attempts.length) * 100;
             return GestureDetector(
               onTap: () => player.play(AssetSource(character.audio)),
               child: StyledContainer(
@@ -66,7 +66,7 @@ class _CharacterListPageState extends State<CharacterListPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text('Accuracy: ${accuracy.toStringAsPrecision(3)}%'),
-                          Text('Encounters: ${encounters.length}'),
+                          Text('Attempts: ${attempts.length}'),
                         ],
                       ),
                     ),

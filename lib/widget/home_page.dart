@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/character_list_page.dart';
 import 'package:language_app/widget/character_select_page.dart';
 import 'package:language_app/widget/character_train_page.dart';
@@ -40,6 +41,12 @@ class HomePage extends StatelessWidget {
       'a',
     ];
     final characterNotifier = context.watch<CharacterNotifier>();
+    final historyNotifier = context.watch<HistoryNotifier>();
+    final characterErrors = historyNotifier.histories
+        .where((element) => !element.correct)
+        .toList();
+    characterErrors.sort((a, b) => a.date.compareTo(b.date));
+    characterErrors.map((element) => element.characterFk);
     return Scaffold(
       appBar: AppBar(title: Text("Home")),
       body: SafeArea(
@@ -80,6 +87,30 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 child: Text("Select Characters"),
+              ),
+              ElevatedButton(
+                onPressed: () => characterErrors.isEmpty
+                    ? null
+                    : Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => CharacterTrainerPage(
+                            characterList: characterNotifier.characters
+                                .where(
+                                  (char) => characterErrors
+                                      .map((elem) => elem.characterFk)
+                                      .toSet()
+                                      .toList()
+                                      .take(10)
+                                      .contains(char.id),
+                                )
+                                .toList(),
+                          ),
+                        ),
+                      ),
+                child: Text(
+                  characterErrors.isEmpty ? "No Errors" : "Practice Errors",
+                ),
               ),
             ],
           ),
