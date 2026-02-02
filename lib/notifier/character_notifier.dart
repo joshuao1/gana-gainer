@@ -19,4 +19,9 @@ class CharacterNotifier extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
+  Future<void> updateCharacter(Character character) async {
+    await dao.update(character);
+    await load();
+  }
 }

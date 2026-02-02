@@ -8,7 +8,10 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
 character TEXT NOT NULL,
 translation TEXT NOT NULL,
 character_group TEXT NOT NULL,
-audio TEXT NOT NULL
+audio TEXT NOT NULL,
+last_date INT,
+next_date INT,
+level INT NOT NULL
 );''';
 
 final historySchema = '''

@@ -22,7 +22,9 @@ class ResultsPage extends StatelessWidget {
           child: Column(
             children: [
               Text("Length: ${sessionData.content.length}"),
-              Text("Accuracy: ${sessionData.accuracy()}%"),
+              Text(
+                "Accuracy: ${sessionData.accuracy().toStringAsPrecision(3)}%",
+              ),
               Text("Duration: ${sessionData.duration.inSeconds} seconds"),
               Text(
                 "Try Again",

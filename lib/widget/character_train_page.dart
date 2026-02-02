@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:language_app/model/character_model.dart';
 import 'package:language_app/model/character_session.dart';
 import 'package:language_app/model/history_model.dart';
+import 'package:language_app/notifier/character_notifier.dart';
 import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/results_page.dart';
 import 'package:language_app/widget/styled_container.dart';
@@ -19,7 +20,6 @@ class CharacterTrainerPage extends StatefulWidget {
 }
 
 class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
-  // final _formKey = GlobalKey<FormState>();
   final _controller = TextEditingController();
   int index = 0;
   Color boxColor = Colors.white;
@@ -28,7 +28,6 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   final stopwatch = Stopwatch();
   final player = AudioPlayer();
   List<History> historyList = [];
-  HistoryNotifier? historyNotifier;
 
   late FocusNode inputFocusNode;
 
@@ -45,22 +44,36 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
     _controller.dispose();
     inputFocusNode.dispose();
     player.dispose();
+    stopwatch.stop();
+    stopwatch.reset();
     super.dispose();
   }
 
   Future<void> saveHistory() async {
     // Save results of the session to the database
+    final historyNotifier = context.read<HistoryNotifier>();
     for (var item in historyList) {
-      historyNotifier!.addHistory(item);
+      historyNotifier.addHistory(item);
     }
   }
 
   Future<void> checkAnswer() async {
+    final characterNotifier = context.read<CharacterNotifier>();
     // Check if the submitted answer is correct. If correct, play audio, flash green and move to next character. If incorrect, flash red and display answer.
     Character character = widget.characterList[index];
     if (character.translation == _controller.value.text) {
       await player.play(AssetSource(character.audio));
       setState(() {
+        // Update spaced repeptition stats
+        characterNotifier.updateCharacter(
+          character.copyWith(
+            lastDate: DateTime.now(),
+            nextDate: DateTime.now().add(Duration(days: 2 ^ character.level)),
+            level: character.level + 1,
+          ),
+        );
+
+        // add to history list
         historyList.add(
           History(
             characterFk: character.id!,
@@ -115,7 +128,6 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
 
   @override
   Widget build(BuildContext context) {
-    historyNotifier = context.watch<HistoryNotifier>();
     return Scaffold(
       appBar: AppBar(title: Text("Character Trainer")),
       body: SafeArea(
