@@ -1,6 +1,6 @@
 # language_app
 
-A new Flutter project.
+Japanese Hiragana trainer
 
 ## TO DO
 [X] Save character sessions to memory
