@@ -77,14 +77,7 @@ class HomePage extends StatelessWidget {
                             )
                             .toList(),
                       ),
-                      child: CharacterTrainerPage(
-                        characterList: characterNotifier.characters
-                            .where(
-                              (char) =>
-                                  selectedGroups.contains(char.characterGroup),
-                            )
-                            .toList(),
-                      ),
+                      child: CharacterTrainerPage(),
                     ),
                   ),
                 ),
@@ -118,18 +111,7 @@ class HomePage extends StatelessWidget {
                                   )
                                   .toList(),
                             ),
-                            child: CharacterTrainerPage(
-                              characterList: characterNotifier.characters
-                                  .where(
-                                    (char) => characterErrors
-                                        .map((elem) => elem.characterFk)
-                                        .toSet()
-                                        .toList()
-                                        .take(10)
-                                        .contains(char.id),
-                                  )
-                                  .toList(),
-                            ),
+                            child: CharacterTrainerPage(),
                           ),
                         ),
                       ),

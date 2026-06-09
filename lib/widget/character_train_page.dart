@@ -13,8 +13,10 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:provider/provider.dart';
 
 class CharacterTrainerPage extends StatefulWidget {
-  final List<Character> characterList;
-  const CharacterTrainerPage({super.key, required this.characterList});
+  const CharacterTrainerPage({super.key});
+
+  // final List<Character> characterList;
+  // const CharacterTrainerPage({super.key, required this.characterList});
 
   @override
   State<CharacterTrainerPage> createState() => _CharacterTrainerPageState();

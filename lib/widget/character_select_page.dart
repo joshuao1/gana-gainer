@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/notifier/character_notifier.dart';
+import 'package:language_app/notifier/character_trainer_notifier.dart';
 import 'package:language_app/widget/character_train_page.dart';
 import 'package:provider/provider.dart';
 
@@ -94,14 +95,16 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
               : () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => CharacterTrainerPage(
-                      characterList: characterNotifier!.characters
-                          // Provide list of characters that have been selected in the groups check list
-                          .where(
-                            (char) =>
-                                selectedGroups.contains(char.characterGroup),
-                          )
-                          .toList(),
+                    builder: (context) => ChangeNotifierProvider(
+                      create: (context) => CharacterTrainerNotifier(
+                        characters: characterNotifier!.characters
+                            .where(
+                              (char) =>
+                                  selectedGroups.contains(char.characterGroup),
+                            )
+                            .toList(),
+                      ),
+                      child: CharacterTrainerPage(),
                     ),
                   ),
                 ),
