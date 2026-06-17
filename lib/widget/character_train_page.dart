@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:language_app/model/character_model.dart';
 import 'package:language_app/model/character_session.dart';
 import 'package:language_app/model/history_model.dart';
-import 'package:language_app/notifier/character_notifier.dart';
 import 'package:language_app/notifier/character_trainer_notifier.dart';
 import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/results_page.dart';
 import 'package:language_app/widget/styled_container.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:provider/provider.dart';
 
 class CharacterTrainerPage extends StatefulWidget {
@@ -24,20 +22,10 @@ class CharacterTrainerPage extends StatefulWidget {
 
 class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
   final _controller = TextEditingController();
-  // int index = 0;
-  // Color boxColor = Colors.white;
-  // String answer = '';
   Set errors = {};
   List<History> historyList = [];
 
   FocusNode inputFocusNode = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    // widget.characterList.shuffle();
-    // inputFocusNode = FocusNode();
-  }
 
   @override
   void dispose() {
@@ -59,7 +47,7 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
     trainerNotifier.checkAnswer(answer);
     print("is finsihed ${trainerNotifier.isFinished}");
     if (trainerNotifier.isFinished) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         CupertinoPageRoute(
           builder: (context) => ResultsPage(
@@ -89,12 +77,30 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
               Text(
                 // widget.characterList[index].character,
                 trainerNotifier.character.character,
-                style: TextStyle(fontSize: 60),
+                style: const TextStyle(
+                  fontSize: 80,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(color: Color(0xFF00FFCC), blurRadius: 15),
+                    Shadow(color: Color(0xFF00FFCC), blurRadius: 30),
+                  ],
+                ),
               ),
-              CupertinoTextField(
+              TextField(
                 controller: _controller,
                 autocorrect: false,
                 enableSuggestions: false,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFF00FFCC),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+                decoration: const InputDecoration(
+                  hintText: 'Enter Romaji',
+                  hintStyle: TextStyle(color: Colors.white30),
+                ),
                 onSubmitted: (String value) {
                   checkAnswer(_controller.value.text);
                   // checkAnswer();
@@ -108,9 +114,9 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
               // if (answer.isNotEmpty) Text(answer),
               ElevatedButton.icon(
                 // onPressed: () => checkAnswer(),
-                onPressed: () => {
-                  checkAnswer(_controller.value.text),
-                  _controller.clear(),
+                onPressed: () {
+                  checkAnswer(_controller.value.text);
+                  _controller.clear();
                 },
                 label: Text("Next"),
                 icon: Icon(Icons.arrow_forward_ios_rounded),

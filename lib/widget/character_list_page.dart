@@ -55,9 +55,23 @@ class _CharacterListPageState extends State<CharacterListPage> {
                         children: [
                           Text(
                             character.character,
-                            style: TextStyle(fontSize: 24),
+                            style: const TextStyle(
+                              fontSize: 32,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(color: Color(0xFF00FFCC), blurRadius: 10),
+                              ],
+                            ),
                           ),
-                          Text(character.translation),
+                          const SizedBox(height: 4),
+                          Text(
+                            character.translation,
+                            style: const TextStyle(
+                              color: Color(0xFFFF00FF),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ],
                       ),
                     ),

@@ -21,15 +21,40 @@ class ResultsPage extends StatelessWidget {
         child: StyledContainer(
           child: Column(
             children: [
-              Text("Length: ${sessionData.content.length}"),
+              Text(
+                "Length: ${sessionData.content.length}",
+                style: const TextStyle(color: Color(0xFF00FFCC), fontSize: 18),
+              ),
+              const SizedBox(height: 8),
               Text(
                 "Accuracy: ${sessionData.accuracy().toStringAsPrecision(3)}%",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(color: Color(0xFF00FFCC), blurRadius: 10),
+                  ],
+                ),
               ),
-              Text("Duration: ${sessionData.duration.inSeconds} seconds"),
+              const SizedBox(height: 8),
               Text(
-                "Try Again",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                "Duration: ${sessionData.duration.inSeconds} seconds",
+                style: const TextStyle(color: Color(0xFF00FFCC), fontSize: 18),
               ),
+              const SizedBox(height: 20),
+              const Text(
+                "Try Again",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFF00FF),
+                  shadows: [
+                    Shadow(color: Color(0xFFFF00FF), blurRadius: 8),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
               Expanded(
                 child: ListView.builder(
                   itemCount: wrongCharacters.length,
@@ -40,9 +65,23 @@ class ResultsPage extends StatelessWidget {
                         children: [
                           Text(
                             wrongCharacter.character,
-                            style: TextStyle(fontSize: 24),
+                            style: const TextStyle(
+                              fontSize: 32,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(color: Color(0xFFFF00FF), blurRadius: 10),
+                              ],
+                            ),
                           ),
-                          Text(wrongCharacter.translation),
+                          const SizedBox(height: 4),
+                          Text(
+                            wrongCharacter.translation,
+                            style: const TextStyle(
+                              color: Color(0xFF00FFCC),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ],
                       ),
                     );

@@ -13,7 +13,6 @@ class CharacterSelectPage extends StatefulWidget {
 }
 
 class _CharacterSelectPageState extends State<CharacterSelectPage> {
-  CharacterNotifier? characterNotifier;
   final Map<String, bool> characterGroups = {
     'a': false,
     'ka': false,
@@ -58,7 +57,7 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
 
   @override
   Widget build(BuildContext context) {
-    characterNotifier = context.watch<CharacterNotifier>();
+    final characterNotifier = context.watch<CharacterNotifier>();
 
     return Scaffold(
       appBar: AppBar(
@@ -76,7 +75,6 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
             return CheckboxListTile(
               title: Text(entry.key),
               value: entry.value,
-              activeColor: Colors.blue,
               onChanged: (checked) {
                 setState(() {
                   characterGroups[entry.key] = checked!;
@@ -97,7 +95,7 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
                   CupertinoPageRoute(
                     builder: (context) => ChangeNotifierProvider(
                       create: (context) => CharacterTrainerNotifier(
-                        characters: characterNotifier!.characters
+                        characters: characterNotifier.characters
                             .where(
                               (char) =>
                                   selectedGroups.contains(char.characterGroup),

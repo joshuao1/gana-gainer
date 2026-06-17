@@ -53,9 +53,9 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 12,
+            spacing: 20,
             children: [
               ElevatedButton(
                 onPressed: () => Navigator.push(
