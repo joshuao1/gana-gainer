@@ -9,9 +9,11 @@ character TEXT NOT NULL,
 translation TEXT NOT NULL,
 character_group TEXT NOT NULL,
 audio TEXT NOT NULL,
-last_date INT,
-next_date INT,
-level INT NOT NULL
+last_error_date INT,
+next_train_date INT,
+last_train_date INT,
+level INT NOT NULL,
+streak INT NOT NULL
 );''';
 
 final historySchema = '''

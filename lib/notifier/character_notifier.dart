@@ -24,4 +24,8 @@ class CharacterNotifier extends ChangeNotifier {
     await dao.update(character);
     await load();
   }
+
+  //Against a character, store the last time an error was recorded.
+  //the number of times it has been correct in a row. the max number in a row it's been correct.
+  //the training level
 }

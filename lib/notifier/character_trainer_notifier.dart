@@ -47,13 +47,15 @@ class CharacterTrainerNotifier extends ChangeNotifier {
   // check answer
   void checkAnswer(String answer) {
     print("checking answer in notifier $answer");
-    if (answer.toLowerCase().trim() == character.translation.toLowerCase().trim()) {
+    if (answer.toLowerCase().trim() ==
+        character.translation.toLowerCase().trim()) {
       print('correct answer');
       _player.play(AssetSource(character.audio));
       _flash(const Color(0xFF00FFCC).withOpacity(0.2)); // Neon green/teal tint
       nextCharacter();
     } else {
       _flash(const Color(0xFFFF0055).withOpacity(0.2)); // Neon red/pink tint
+      print('wrong answer, correct answer is ${character.translation}');
       _errors.add(character.id!);
     }
   }
