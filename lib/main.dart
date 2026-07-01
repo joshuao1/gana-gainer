@@ -17,11 +17,15 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        Provider(create: (context) => characterDao),
+        Provider(create: (context) => historyDao),
         ChangeNotifierProvider(
-          create: (context) => CharacterNotifier(characterDao)..load(),
+          create: (context) =>
+              CharacterNotifier(context.read<CharacterDao>())..load(),
         ),
         ChangeNotifierProvider(
-          create: (context) => HistoryNotifier(historyDao)..load(),
+          create: (context) =>
+              HistoryNotifier(context.read<HistoryDao>())..load(),
         ),
       ],
       child: MyApp(),

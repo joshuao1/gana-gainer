@@ -62,15 +62,16 @@ class Character {
     if (lastTrainDate != null) {
       if (DateTime.now().difference(lastTrainDate!).inDays > 1) {
         level += 1;
-        nextTrainDate = DateTime.now().add(Duration(days: level));
       }
     }
     lastTrainDate = DateTime.now();
+    nextTrainDate = DateTime.now().add(Duration(days: level));
   }
 
   void wrongAnswer() {
     level = 0;
     lastErrorDate = DateTime.now();
+    lastTrainDate = DateTime.now();
     nextTrainDate = DateTime.now().add(Duration(days: level));
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:language_app/data/character_dao.dart';
 import 'package:language_app/notifier/character_trainer_notifier.dart';
 import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/character_list_page.dart';
@@ -76,6 +77,7 @@ class HomePage extends StatelessWidget {
                                   selectedGroups.contains(char.characterGroup),
                             )
                             .toList(),
+                        characterDao: context.read<CharacterDao>(),
                       ),
                       child: CharacterTrainerPage(),
                     ),
@@ -110,6 +112,7 @@ class HomePage extends StatelessWidget {
                                         .contains(char.id),
                                   )
                                   .toList(),
+                              characterDao: context.read<CharacterDao>(),
                             ),
                             child: CharacterTrainerPage(),
                           ),

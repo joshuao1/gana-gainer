@@ -1,0 +1,32 @@
+# Files and directories to ignore for AI operations
+
+# Flutter/Dart specific
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+pubspec.lock
+build/
+
+# IDE-specific
+.idea/
+*.iml
+.vscode/
+
+# Git specific (often redundant if .gitignore is respected, but good to include)
+.git/
+
+# OS specific
+.DS_Store
+
+# Platform specific build/temp directories
+android/build/
+ios/Pods/
+ios/.symlinks/
+macos/build/
+windows/build/
+linux/build/
+
+# Log files
+*.log

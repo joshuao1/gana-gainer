@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:language_app/data/character_dao.dart';
 import 'package:language_app/notifier/character_notifier.dart';
 import 'package:language_app/notifier/character_trainer_notifier.dart';
 import 'package:language_app/widget/character_train_page.dart';
@@ -94,14 +95,20 @@ class _CharacterSelectPageState extends State<CharacterSelectPage> {
                   context,
                   CupertinoPageRoute(
                     builder: (context) => ChangeNotifierProvider(
-                      create: (context) => CharacterTrainerNotifier(
-                        characters: characterNotifier.characters
-                            .where(
-                              (char) =>
-                                  selectedGroups.contains(char.characterGroup),
-                            )
-                            .toList(),
-                      ),
+                      create: (context) {
+                        final characterNotifier = context
+                            .read<CharacterNotifier>();
+                        return CharacterTrainerNotifier(
+                          characters: characterNotifier.characters
+                              .where(
+                                (char) => selectedGroups.contains(
+                                  char.characterGroup,
+                                ),
+                              )
+                              .toList(),
+                          characterDao: context.read<CharacterDao>(),
+                        );
+                      },
                       child: CharacterTrainerPage(),
                     ),
                   ),

@@ -11,11 +11,13 @@ class CharacterDao {
   }
 
   Future<void> update(Character character) async {
-    await _database.update(
+    print('Updating character: ${character.toMap()}');
+    final rowsAffected = await _database.update(
       'characters',
       character.toMap(),
       where: 'id = ?',
       whereArgs: [character.id],
     );
+    print('Rows affected: $rowsAffected');
   }
 }

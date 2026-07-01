@@ -42,11 +42,12 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
     }
   }
 
-  void checkAnswer(String answer) {
+  void checkAnswer(String answer) async {
     final trainerNotifier = context.read<CharacterTrainerNotifier>();
     trainerNotifier.checkAnswer(answer);
     print("is finsihed ${trainerNotifier.isFinished}");
     if (trainerNotifier.isFinished) {
+      await trainerNotifier.saveSession();
       Navigator.pushReplacement(
         context,
         CupertinoPageRoute(
