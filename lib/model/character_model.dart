@@ -7,6 +7,7 @@ class Character {
   DateTime? lastErrorDate;
   DateTime? nextTrainDate;
   DateTime? lastTrainDate;
+  DateTime? lastLevelUpDate;
   int level;
   int? streak;
 
@@ -19,6 +20,7 @@ class Character {
     this.lastErrorDate,
     this.nextTrainDate,
     this.lastTrainDate,
+    this.lastLevelUpDate,
     required this.level,
     // TODO implement streak properly
     this.streak,
@@ -34,6 +36,7 @@ class Character {
       'last_error_date': lastErrorDate?.millisecondsSinceEpoch,
       'next_train_date': nextTrainDate?.millisecondsSinceEpoch,
       'last_train_date': lastTrainDate?.millisecondsSinceEpoch,
+      'last_level_up_date': lastLevelUpDate?.millisecondsSinceEpoch,
       'level': level,
       'streak': streak,
     };
@@ -59,10 +62,14 @@ class Character {
   // }
 
   void correctAnswer() {
-    if (lastTrainDate != null) {
-      if (DateTime.now().difference(lastTrainDate!).inDays > 1) {
-        level += 1;
-      }
+    if (lastLevelUpDate == null) {
+      level += 1;
+      lastLevelUpDate = DateTime.now();
+    }
+    if (lastLevelUpDate != null &&
+        DateTime.now().difference(lastLevelUpDate!).inDays > 1) {
+      level += 1;
+      lastLevelUpDate = DateTime.now();
     }
     lastTrainDate = DateTime.now();
     nextTrainDate = DateTime.now().add(Duration(days: level));
@@ -98,6 +105,11 @@ class Character {
           : null,
       lastTrainDate: map['last_train_date'] != null
           ? DateTime.fromMillisecondsSinceEpoch(map['last_train_date'] as int)
+          : null,
+      lastLevelUpDate: map['last_level_up_date'] != null
+          ? DateTime.fromMicrosecondsSinceEpoch(
+              map['last_level_up_date'] as int,
+            )
           : null,
       level: map['level'] as int,
       streak: map['streak'] as int?,

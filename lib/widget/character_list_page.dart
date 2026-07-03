@@ -4,6 +4,7 @@ import 'package:language_app/notifier/history_notifier.dart';
 import 'package:language_app/widget/styled_container.dart';
 import 'package:provider/provider.dart';
 import 'package:language_app/notifier/character_notifier.dart';
+import 'package:intl/intl.dart';
 
 class CharacterListPage extends StatefulWidget {
   const CharacterListPage({super.key});
@@ -45,6 +46,7 @@ class _CharacterListPageState extends State<CharacterListPage> {
                 .toList();
             final accuracy =
                 ((attempts.length - errors.length) / attempts.length) * 100;
+
             return GestureDetector(
               onTap: () => player.play(AssetSource(character.audio)),
               child: StyledContainer(
@@ -56,11 +58,14 @@ class _CharacterListPageState extends State<CharacterListPage> {
                           Text(
                             character.character,
                             style: const TextStyle(
-                              fontSize: 32,
+                              fontSize: 60,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               shadows: [
-                                Shadow(color: Color(0xFF00FFCC), blurRadius: 10),
+                                Shadow(
+                                  color: Color(0xFF00FFCC),
+                                  blurRadius: 10,
+                                ),
                               ],
                             ),
                           ),
@@ -70,6 +75,7 @@ class _CharacterListPageState extends State<CharacterListPage> {
                             style: const TextStyle(
                               color: Color(0xFFFF00FF),
                               fontWeight: FontWeight.w500,
+                              fontSize: 18,
                             ),
                           ),
                         ],
@@ -81,6 +87,27 @@ class _CharacterListPageState extends State<CharacterListPage> {
                         children: [
                           Text('Accuracy: ${accuracy.toStringAsPrecision(3)}%'),
                           Text('Attempts: ${attempts.length}'),
+                          Text('Level: ${character.level}'),
+                          Text(
+                            'Last Train Date: ${character.lastTrainDate != null ? DateFormat('yyyy-MM-dd').format(character.lastTrainDate!) : 'No date'}',
+                            style: TextStyle(
+                              color: character.lastTrainDate == null
+                                  ? Colors.grey
+                                  : Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Next Due: ${character.nextTrainDate != null ? DateFormat('yyyy-MM-dd').format(character.nextTrainDate!) : 'No date'}',
+                            style: TextStyle(
+                              color: character.nextTrainDate == null
+                                  ? Colors.grey
+                                  : Colors.white,
+                            ),
+                          ),
+
+                          // Text(
+                          //   // 'Next Due: ${DateTime.fromMillisecondsSinceEpoch(character.nextTrainDate as int)}',
+                          // ),
                         ],
                       ),
                     ),
