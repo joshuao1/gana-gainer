@@ -43,6 +43,15 @@ class HomePage extends StatelessWidget {
       'a',
     ];
     final characterNotifier = context.watch<CharacterNotifier>();
+    final allCharacters = characterNotifier.characters;
+    final now = DateTime.now();
+    final dueCharacters = allCharacters.where(
+      (char) => char.nextTrainDate != null && now.isAfter(char.nextTrainDate!),
+    );
+    final newCharacters = allCharacters
+        .where((char) => char.lastTrainDate == null)
+        .take(10);
+    final trainingCharacters = {...dueCharacters, ...newCharacters}.toList();
     final historyNotifier = context.watch<HistoryNotifier>();
     final characterErrors = historyNotifier.histories
         .where((element) => !element.correct)
@@ -120,6 +129,29 @@ class HomePage extends StatelessWidget {
                       ),
                 child: Text(
                   characterErrors.isEmpty ? "No Errors" : "Practice Errors",
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  trainingCharacters.isEmpty
+                      ? null
+                      : Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => ChangeNotifierProvider(
+                              create: (context) => CharacterTrainerNotifier(
+                                characters: trainingCharacters,
+                                characterDao: context.read<CharacterDao>(),
+                              ),
+                              child: CharacterTrainerPage(),
+                            ),
+                          ),
+                        );
+                },
+                child: Text(
+                  trainingCharacters.isEmpty
+                      ? "Training Complete"
+                      : "Spaced Repetition Training",
                 ),
               ),
             ],

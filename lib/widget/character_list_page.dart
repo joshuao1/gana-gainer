@@ -25,7 +25,7 @@ class _CharacterListPageState extends State<CharacterListPage> {
   @override
   Widget build(BuildContext context) {
     var characterNotifier = context.watch<CharacterNotifier>();
-    var historyNotifier = context.watch<HistoryNotifier>();
+    // var historyNotifier = context.watch<HistoryNotifier>();
 
     if (characterNotifier.isLoading) {
       return const Center(child: CircularProgressIndicator());
@@ -38,14 +38,8 @@ class _CharacterListPageState extends State<CharacterListPage> {
           itemCount: characterNotifier.characters.length,
           itemBuilder: (context, index) {
             final character = characterNotifier.characters[index];
-            final attempts = historyNotifier.histories
-                .where((hist) => hist.characterFk == character.id!)
-                .toList();
-            final errors = attempts
-                .where((hist) => hist.correct == false)
-                .toList();
             final accuracy =
-                ((attempts.length - errors.length) / attempts.length) * 100;
+                (character.numCorrect * 100 / character.numAttempts);
 
             return GestureDetector(
               onTap: () => player.play(AssetSource(character.audio)),
@@ -86,7 +80,7 @@ class _CharacterListPageState extends State<CharacterListPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text('Accuracy: ${accuracy.toStringAsPrecision(3)}%'),
-                          Text('Attempts: ${attempts.length}'),
+                          Text('Attempts: ${character.numAttempts}'),
                           Text('Level: ${character.level}'),
                           Text(
                             'Last Train Date: ${character.lastTrainDate != null ? DateFormat('yyyy-MM-dd').format(character.lastTrainDate!) : 'No date'}',

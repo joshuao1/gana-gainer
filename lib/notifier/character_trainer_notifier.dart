@@ -17,10 +17,11 @@ class CharacterTrainerNotifier extends ChangeNotifier {
   Color _boxColor = Colors.white;
   Timer? _flashTimer;
 
-  CharacterTrainerNotifier(
-      {required List<Character> characters, required CharacterDao characterDao})
-      : _characterList = List.of(characters)..shuffle(),
-        _characterDao = characterDao;
+  CharacterTrainerNotifier({
+    required List<Character> characters,
+    required CharacterDao characterDao,
+  }) : _characterList = List.of(characters)..shuffle(),
+       _characterDao = characterDao;
 
   // Getters
   Character get character =>

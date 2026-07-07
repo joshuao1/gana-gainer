@@ -6,6 +6,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/a.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'い',
@@ -14,6 +16,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/i.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'う',
@@ -22,6 +26,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/u.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'え',
@@ -30,6 +36,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/e.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'お',
@@ -38,6 +46,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/o.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'か',
@@ -46,6 +56,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ka.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'き',
@@ -54,6 +66,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ki.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'く',
@@ -62,6 +76,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ku.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'け',
@@ -70,6 +86,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ke.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'こ',
@@ -78,6 +96,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ko.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'が',
@@ -86,6 +106,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ga.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぎ',
@@ -94,6 +116,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/gi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぐ',
@@ -102,6 +126,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/gu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'げ',
@@ -110,6 +136,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ge.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ご',
@@ -118,6 +146,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/go.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'さ',
@@ -126,6 +156,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/sa.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'し',
@@ -134,6 +166,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/shi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'す',
@@ -142,6 +176,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/su.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'せ',
@@ -150,6 +186,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/se.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'そ',
@@ -158,6 +196,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/so.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ざ',
@@ -166,6 +206,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/za.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'じ',
@@ -174,6 +216,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ji.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ず',
@@ -182,6 +226,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/zu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぜ',
@@ -190,6 +236,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ze.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぞ',
@@ -198,6 +246,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/zo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'た',
@@ -206,6 +256,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ta.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ち',
@@ -214,6 +266,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/chi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'つ',
@@ -222,6 +276,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/tsu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'て',
@@ -230,6 +286,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/te.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'と',
@@ -238,6 +296,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/to.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'だ',
@@ -246,6 +306,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/da.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   // Chi -> Ji, apparently if typing it's di
   {
@@ -255,6 +317,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ji.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   // Tsu -> Zu sound, but apparently typing it's Du
   {
@@ -264,6 +328,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/zu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'で',
@@ -272,6 +338,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/de.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ど',
@@ -280,6 +348,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/do.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'な',
@@ -288,6 +358,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/na.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'に',
@@ -296,6 +368,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ni.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぬ',
@@ -304,6 +378,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/nu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ね',
@@ -312,6 +388,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ne.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'の',
@@ -320,6 +398,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/no.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'は',
@@ -328,6 +408,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ha.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ひ',
@@ -336,6 +418,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/hi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ふ',
@@ -344,6 +428,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/fu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'へ',
@@ -352,6 +438,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/he.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ほ',
@@ -360,6 +448,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ho.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ば',
@@ -368,6 +458,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ba.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'び',
@@ -376,6 +468,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/bi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぶ',
@@ -384,6 +478,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/bu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'べ',
@@ -392,6 +488,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/be.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぼ',
@@ -400,6 +498,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/bo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぱ',
@@ -408,6 +508,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pa.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぴ',
@@ -416,6 +518,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぷ',
@@ -424,6 +528,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぺ',
@@ -432,6 +538,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pe.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぽ',
@@ -440,6 +548,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/po.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ま',
@@ -448,6 +558,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ma.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'み',
@@ -456,6 +568,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/mi.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'む',
@@ -464,6 +578,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/mu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'め',
@@ -472,6 +588,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/me.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'も',
@@ -480,6 +598,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/mo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'や',
@@ -488,6 +608,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ゆ',
@@ -496,6 +618,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/yu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'よ',
@@ -504,6 +628,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/yo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ら',
@@ -512,6 +638,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ra.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'り',
@@ -520,6 +648,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ri.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'る',
@@ -528,6 +658,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ru.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'れ',
@@ -536,6 +668,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/re.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ろ',
@@ -544,6 +678,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ro.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'わ',
@@ -552,6 +688,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/wa.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'を',
@@ -560,6 +698,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/wo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ん',
@@ -568,6 +708,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/n.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'きゃ',
@@ -576,6 +718,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/kya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'きゅ',
@@ -584,6 +728,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/kyu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'きょ',
@@ -592,6 +738,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/kyo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぎゃ',
@@ -600,6 +748,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/gya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぎゅ',
@@ -608,6 +758,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/gyu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぎょ',
@@ -616,6 +768,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/gyo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'しゃ',
@@ -624,6 +778,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/sha.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'しゅ',
@@ -632,6 +788,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/shu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'しょ',
@@ -640,6 +798,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/sho.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'じゃ',
@@ -648,6 +808,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ja.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'じゅ',
@@ -656,6 +818,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ju.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'じょ',
@@ -664,6 +828,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/jo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ちゃ',
@@ -672,6 +838,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/cha.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ちゅ',
@@ -680,6 +848,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/chu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ちょ',
@@ -688,6 +858,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/cho.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'にゃ',
@@ -696,6 +868,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/nya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'にゅ',
@@ -704,6 +878,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/nyu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'にょ',
@@ -712,6 +888,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/nyo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ひゃ',
@@ -720,6 +898,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/hya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ひゅ',
@@ -728,6 +908,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/hyu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ひょ',
@@ -736,6 +918,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/hyo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'びゃ',
@@ -744,6 +928,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/bya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'びゅ',
@@ -752,6 +938,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/byu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'びょ',
@@ -760,6 +948,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/byo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぴゃ',
@@ -768,6 +958,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぴゅ',
@@ -776,6 +968,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pyu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'ぴょ',
@@ -784,6 +978,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/pyo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'みゃ',
@@ -792,6 +988,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/mya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'みゅ',
@@ -800,6 +998,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/myu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'みょ',
@@ -808,6 +1008,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/myo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'りゃ',
@@ -816,6 +1018,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/rya.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'りゅ',
@@ -824,6 +1028,8 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ryu.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
   {
     'character': 'りょ',
@@ -832,5 +1038,7 @@ final List<Map<String, Object?>> characterList = [
     'audio': 'sounds/characters/ryo.mp3',
     'level': 0,
     'streak': 0,
+    'num_attempts': 0,
+    'num_correct': 0,
   },
 ];

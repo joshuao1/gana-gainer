@@ -14,7 +14,9 @@ next_train_date INT,
 last_train_date INT,
 last_level_up_date INT,
 level INT NOT NULL,
-streak INT NOT NULL
+streak INT NOT NULL,
+num_attempts INT NOT NULL,
+num_correct INT NOT NULL
 );''';
 
 final historySchema = '''
@@ -46,7 +48,17 @@ final class AppDatabase {
     print('DB PATH: $dbPath');
     final path = join(dbPath, 'app.db');
 
-    return await openDatabase(path, version: 1, onCreate: _onCreate);
+    return await openDatabase(path,
+        version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute(
+          'ALTER TABLE characters ADD COLUMN num_attempts INT NOT NULL DEFAULT 0');
+      await db.execute(
+          'ALTER TABLE characters ADD COLUMN num_correct INT NOT NULL DEFAULT 0');
+    }
   }
 
   Future<void> _onCreate(Database db, int verion) async {

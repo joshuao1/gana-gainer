@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:language_app/data/history_dao.dart';
 import 'package:language_app/notifier/character_notifier.dart';
 import 'package:language_app/notifier/history_notifier.dart';
-import 'package:language_app/widget/character_train_page.dart';
 import 'package:language_app/widget/home_page.dart';
 import 'package:provider/provider.dart';
 
@@ -56,15 +55,11 @@ class MyApp extends StatelessWidget {
             color: Color(0xFF00FFCC),
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            shadows: [
-              Shadow(color: Color(0xFF00FFCC), blurRadius: 10),
-            ],
+            shadows: [Shadow(color: Color(0xFF00FFCC), blurRadius: 10)],
           ),
           iconTheme: IconThemeData(
             color: Color(0xFF00FFCC),
-            shadows: [
-              Shadow(color: Color(0xFF00FFCC), blurRadius: 10),
-            ],
+            shadows: [Shadow(color: Color(0xFF00FFCC), blurRadius: 10)],
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -74,7 +69,10 @@ class MyApp extends StatelessWidget {
             side: const BorderSide(color: Color(0xFF00FFCC), width: 2),
             shadowColor: const Color(0xFF00FFCC),
             elevation: 10,
-            textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),

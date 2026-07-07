@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:language_app/model/character_model.dart';
 import 'package:language_app/model/character_session.dart';
 import 'package:language_app/model/history_model.dart';
 import 'package:language_app/notifier/character_trainer_notifier.dart';
@@ -34,13 +33,13 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
     super.dispose();
   }
 
-  Future<void> saveHistory() async {
-    // Save results of the session to the database
-    final historyNotifier = context.read<HistoryNotifier>();
-    for (var item in historyList) {
-      historyNotifier.addHistory(item);
-    }
-  }
+  // Future<void> saveHistory() async {
+  //   // Save results of the session to the database
+  //   final historyNotifier = context.read<HistoryNotifier>();
+  //   for (var item in historyList) {
+  //     historyNotifier.addHistory(item);
+  //   }
+  // }
 
   void checkAnswer(String answer) async {
     final trainerNotifier = context.read<CharacterTrainerNotifier>();
@@ -83,8 +82,8 @@ class _CharacterTrainerPageState extends State<CharacterTrainerPage> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   shadows: [
-                    Shadow(color: Color(0xFF00FFCC), blurRadius: 15),
-                    Shadow(color: Color(0xFF00FFCC), blurRadius: 30),
+                    // Shadow(color: Color(0xFF00FFCC), blurRadius: 15),
+                    // Shadow(color: Color(0xFF00FFCC), blurRadius: 30),
                   ],
                 ),
               ),

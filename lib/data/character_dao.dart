@@ -6,7 +6,7 @@ class CharacterDao {
   CharacterDao(this._database);
 
   Future<List<Character>> getAll() async {
-    final maps = await _database.query('characters', orderBy: 'id DESC');
+    final maps = await _database.query('characters', orderBy: 'id ASC');
     return maps.map(Character.fromMap).toList();
   }
 

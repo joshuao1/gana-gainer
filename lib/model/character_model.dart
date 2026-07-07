@@ -9,7 +9,9 @@ class Character {
   DateTime? lastTrainDate;
   DateTime? lastLevelUpDate;
   int level;
-  int? streak;
+  int numAttempts;
+  int numCorrect;
+  int streak;
 
   Character({
     this.id,
@@ -22,8 +24,9 @@ class Character {
     this.lastTrainDate,
     this.lastLevelUpDate,
     required this.level,
-    // TODO implement streak properly
-    this.streak,
+    required this.numAttempts,
+    required this.numCorrect,
+    required this.streak,
   });
 
   Map<String, Object?> toMap() {
@@ -38,28 +41,11 @@ class Character {
       'last_train_date': lastTrainDate?.millisecondsSinceEpoch,
       'last_level_up_date': lastLevelUpDate?.millisecondsSinceEpoch,
       'level': level,
+      'num_attempts': numAttempts,
+      'num_correct': numCorrect,
       'streak': streak,
     };
   }
-
-  // Character copyWith({
-  //   DateTime? lastErrorDate,
-  //   DateTime? nextTrainDate,
-  //   int? level,
-  //   int? streak,
-  // }) {
-  //   return Character(
-  //     id: id,
-  //     character: character,
-  //     translation: translation,
-  //     characterGroup: characterGroup,
-  //     audio: audio,
-  //     lastErrorDate: lastErrorDate ?? this.lastErrorDate,
-  //     nextTrainDate: nextTrainDate ?? this.nextTrainDate,
-  //     level: level ?? this.level,
-  //     streak: streak ?? this.streak,
-  //   );
-  // }
 
   void correctAnswer() {
     if (lastLevelUpDate == null) {
@@ -71,24 +57,21 @@ class Character {
       level += 1;
       lastLevelUpDate = DateTime.now();
     }
+    streak += 1;
+    numAttempts += 1;
+    numCorrect += 1;
     lastTrainDate = DateTime.now();
     nextTrainDate = DateTime.now().add(Duration(days: level));
   }
 
   void wrongAnswer() {
+    streak = 0;
+    numAttempts += 1;
     level = 0;
     lastErrorDate = DateTime.now();
     lastTrainDate = DateTime.now();
     nextTrainDate = DateTime.now().add(Duration(days: level));
   }
-
-  // void increaseStreak() {
-  //   streak += 1;
-  // }
-
-  // void resetStreak() {
-  //   streak = 0;
-  // }
 
   static Character fromMap(Map<String, Object?> map) {
     return Character(
@@ -112,7 +95,29 @@ class Character {
             )
           : null,
       level: map['level'] as int,
-      streak: map['streak'] as int?,
+      numAttempts: map['num_attempts'] as int,
+      numCorrect: map['num_correct'] as int,
+      streak: map['streak'] as int,
     );
   }
 }
+
+
+  // Character copyWith({
+  //   DateTime? lastErrorDate,
+  //   DateTime? nextTrainDate,
+  //   int? level,
+  //   int? streak,
+  // }) {
+  //   return Character(
+  //     id: id,
+  //     character: character,
+  //     translation: translation,
+  //     characterGroup: characterGroup,
+  //     audio: audio,
+  //     lastErrorDate: lastErrorDate ?? this.lastErrorDate,
+  //     nextTrainDate: nextTrainDate ?? this.nextTrainDate,
+  //     level: level ?? this.level,
+  //     streak: streak ?? this.streak,
+  //   );
+  // }
