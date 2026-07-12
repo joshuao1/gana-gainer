@@ -52,12 +52,19 @@ class HomePage extends StatelessWidget {
         .where((char) => char.lastTrainDate == null)
         .take(10);
     final trainingCharacters = {...dueCharacters, ...newCharacters}.toList();
-    final historyNotifier = context.watch<HistoryNotifier>();
-    final characterErrors = historyNotifier.histories
-        .where((element) => !element.correct)
+    final errorCharacters = allCharacters
+        .where(
+          (char) =>
+              char.lastErrorDate != null &&
+              now.difference(char.lastErrorDate!).inDays >= 1,
+        )
         .toList();
-    characterErrors.sort((a, b) => a.date.compareTo(b.date));
-    characterErrors.map((element) => element.characterFk);
+    // final historyNotifier = context.watch<HistoryNotifier>();
+    // final characterErrors = historyNotifier.histories
+    //     .where((element) => !element.correct)
+    //     .toList();
+    // characterErrors.sort((a, b) => a.date.compareTo(b.date));
+    // characterErrors.map((element) => element.characterFk);
     return Scaffold(
       appBar: AppBar(title: Text("Home")),
       body: SafeArea(
@@ -104,23 +111,14 @@ class HomePage extends StatelessWidget {
                 child: Text("Select Characters"),
               ),
               ElevatedButton(
-                onPressed: () => characterErrors.isEmpty
+                onPressed: () => errorCharacters.isEmpty
                     ? null
                     : Navigator.push(
                         context,
                         CupertinoPageRoute(
                           builder: (context) => ChangeNotifierProvider(
                             create: (context) => CharacterTrainerNotifier(
-                              characters: characterNotifier.characters
-                                  .where(
-                                    (char) => characterErrors
-                                        .map((elem) => elem.characterFk)
-                                        .toSet()
-                                        .toList()
-                                        .take(10)
-                                        .contains(char.id),
-                                  )
-                                  .toList(),
+                              characters: errorCharacters,
                               characterDao: context.read<CharacterDao>(),
                             ),
                             child: CharacterTrainerPage(),
@@ -128,7 +126,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                 child: Text(
-                  characterErrors.isEmpty ? "No Errors" : "Practice Errors",
+                  errorCharacters.isEmpty ? "No Errors" : "Practice Errors",
                 ),
               ),
               ElevatedButton(
